@@ -8,10 +8,11 @@ import {
   Users,
 } from "lucide-react";
 
-// import founderImg from "../../public/assets/ajay-rajput.jpg";
+import founderImg from "../../public/assets/ajay-rajput.jpg";
 import coFounderImg from "../../public/assets/akash-raj.jpg";
 
 const teamImages: Record<string, string> = {
+  "1": founderImg,
   "2": coFounderImg,
 };
 
