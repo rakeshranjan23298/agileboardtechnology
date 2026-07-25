@@ -8,18 +8,17 @@ import {
   Users,
 } from "lucide-react";
 
-import founderImg from "../../public/assets/ajay-rajput.jpg";
+// import founderImg from "../../public/assets/ajay-rajput.jpg";
 import coFounderImg from "../../public/assets/akash-raj.jpg";
 
 const teamImages: Record<string, string> = {
-  "1": founderImg,
   "2": coFounderImg,
 };
 
 export function AboutPage() {
   return (
     <>
-        <section
+      <section
         className="relative h-[500px] bg-cover bg-center"
         style={{ backgroundImage: `url(${about})` }}
       >
@@ -42,35 +41,35 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* Company History */}
-     {/* Company Highlights */}
-<section className="container-page py-20">
-  <SectionHeader
-    eyebrow="Our Impact"
-    title="Trusted by Businesses Across the United States"
-  />
+      {/* Company Highlights */}
+      <section className="container-page py-20">
+        <SectionHeader
+          eyebrow="Our Impact"
+          title="Trusted by Businesses Across the United States"
+        />
 
-  <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-    {milestones.map((item) => (
-      <div
-        key={item.title}
-        className="rounded-2xl border border-border bg-card p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-      >
-        <h3 className="text-4xl font-bold text-brand">
-          {item.value}
-        </h3>
+        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {milestones.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-2xl border border-border bg-card p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            >
+              <h3 className="text-4xl font-bold text-brand">
+                {item.value}
+              </h3>
 
-        <h4 className="mt-4 text-xl font-semibold">
-          {item.title}
-        </h4>
+              <h4 className="mt-4 text-xl font-semibold">
+                {item.title}
+              </h4>
 
-        <p className="mt-3 text-sm leading-6 text-muted-foreground">
-          {item.text}
-        </p>
-      </div>
-    ))}
-  </div>
-</section>
+              <p className="mt-3 text-sm leading-6 text-muted-foreground">
+                {item.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Why Choose Us */}
       <section className="border-y border-border bg-muted/40 py-20">
         <div className="container-page">
@@ -146,11 +145,15 @@ export function AboutPage() {
               key={member.id}
               className="rounded-2xl border border-border bg-card p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              <img
-                src={teamImages[member.id]}
-                alt={member.name}
-                className="mx-auto h-32 w-32 rounded-full border-4 border-brand/10 object-cover"
-              />
+              {teamImages[member.id] ? (
+                <img
+                  src={teamImages[member.id]}
+                  alt={member.name}
+                  className="mx-auto h-32 w-32 rounded-full border-4 border-brand/10 object-cover"
+                />
+              ) : (
+                <div className="mx-auto h-32 w-32 rounded-full border-4 border-brand/10 bg-gray-100" />
+              )}
 
               <h3 className="mt-6 text-2xl font-bold">
                 {member.name}
